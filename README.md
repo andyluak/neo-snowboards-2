@@ -1,5 +1,13 @@
 # NEO-SNOWBOARDS
 
+## GITHUB 
+
+``` 
+git add . 
+git commit -m 'mesaj'
+git push
+```
+
 ## Prisma
 
 ## API
