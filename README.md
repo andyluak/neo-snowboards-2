@@ -1,14 +1,15 @@
 # NEO-SNOWBOARDS
 
-## Prisma 
+## Prisma
 
-## API 
+## API
 
+### TO DO
 
+#### Add items to DB
 
-### TO DO 
+#### Create get routes for products
 
-#### Add items to DB 
-#### Create get routes for products 
-#### Add redux 
+#### Add redux
+
 #### Build home, category, products, product pages, cart page, checkout page
