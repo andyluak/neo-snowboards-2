@@ -1,11 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 import styles from './style.module.scss';
 
 function BaseTemplate() {
-  return (
-    <div className={styles['container']}>Hello World! </div>
-  )
+  return <div className={styles['container']}>Hello World! </div>;
 }
 
-export default BaseTemplate
+export default BaseTemplate;
