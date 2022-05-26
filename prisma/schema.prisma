@@ -1,0 +1,136 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Products {
+  id           Int        @id @default(autoincrement())
+  product_name String     @unique
+  product_slug String     @unique
+  SKU          Int
+  brand        String
+  image        String
+  description  String
+  price        Float
+  discount     Discounts? @relation(fields: [discount_id], references: [id])
+  discount_id  Int
+  type         String
+  featured     Boolean    @default(false)
+  stock        Int
+  categories   Category[]
+  created_at   DateTime   @default(now())
+  updated_at   DateTime   @default(now()) @updatedAt
+
+  snowboards Snowboards[]
+  boots      Boots[]
+  bindings   Bindings[]
+  helmets    Helmets[]
+  goggles    Goggles[]
+  gloves     Gloves[]
+}
+
+model Category {
+  id            Int      @id @default(autoincrement())
+  category_name String   @unique
+  created_at    DateTime @default(now())
+  updated_at    DateTime @default(now()) @updatedAt
+
+  products Products[]
+}
+
+model Snowboards {
+  id            Int      @id @default(autoincrement())
+  product       Products @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  product_id    Int
+  sizes         String
+  ability_level String @default("")
+  terrain       String @default("")
+  rocker_type   String @default("")
+  shape         String @default("")
+  flex_rating   String @default("")
+  core          String @default("")
+  created_at    DateTime @default(now())
+  updated_at    DateTime @default(now()) @updatedAt
+}
+
+model Boots {
+  id            Int      @id @default(autoincrement())
+  product       Products @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  product_id    Int
+  sizes         String   @default("S M L XL")
+  ability_level String @default("")
+  flex_rating   String @default("")
+  lacing_system String @default("")
+  binding_style String @default("")
+  created_at    DateTime @default(now())
+  updated_at    DateTime @default(now()) @updatedAt
+}
+
+model Bindings {
+  id            Int      @id @default(autoincrement())
+  product       Products @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  product_id    Int
+  sizes         String   @default("S M L XL")
+  ability_level String @default("")
+  flex_rating   String @default("")
+  binding_style String @default("")
+  created_at    DateTime @default(now())
+  updated_at    DateTime @default(now()) @updatedAt
+}
+
+model Helmets {
+  id                 Int      @id @default(autoincrement())
+  product            Products @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  product_id         Int
+  sizes              String   @default("S M L XL")
+  material           String @default("")
+  style              String @default("")
+  venting            String @default("")
+  audio              String @default("")
+  removable_ear_pads String @default("")
+  adjustable_fit     String @default("")
+  weight             String @default("")
+  created_at         DateTime @default(now())
+  updated_at         DateTime @default(now()) @updatedAt
+}
+
+model Goggles {
+  id                Int      @id @default(autoincrement())
+  product           Products @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  product_id        Int
+  sizes             String   @default("S M L XL")
+  frame_size        String @default("")
+  lens_type         String @default("")
+  quick_lens        String @default("")
+  helmet_compatible String @default("")
+  created_at        DateTime @default(now())
+  updated_at        DateTime @default(now()) @updatedAt
+}
+
+model Gloves {
+  id         Int      @id @default(autoincrement())
+  product    Products @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  product_id Int
+  sizes      String   @default("S M L XL")
+  warmth     String @default("")
+  material   String @default("")
+  cuff_style String @default("")
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+}
+
+model Discounts {
+  id                  Int        @id @default(autoincrement())
+  name                String
+  description         String
+  discount_percentage Float
+  created_at          DateTime   @default(now())
+  updated_at          DateTime   @default(now()) @updatedAt
+  products            Products[]
+
+  @@unique([name])
+}

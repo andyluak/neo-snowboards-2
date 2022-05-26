@@ -9,6 +9,17 @@ git push
 ```
 
 ## Prisma
+```
+npm install prisma --save-dev
+npx prisma init
+npx prisma db push
+npx prisma studio
+```
+
+## Run this on every schema file update `npx prisma generate` || `prisma db push`
+
+### To change your database schema, you can manually make changes to your Prisma schema and then run the `prisma db push` command again. Open schema.prisma and adjust the models in it to look as follows:
+
 
 ## API
 
