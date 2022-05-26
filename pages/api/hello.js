@@ -1,54 +1,5 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import prisma from 'lib/prisma';
-
-const formatSlug = (slug) => {
-  // remove all - and '
-  let slugNoDash = slug.replace(/-/g, ' ').replace(/'/g, ' ');
-  slugNoDash = slugNoDash.split(' ');
-  slugNoDash = slugNoDash.filter((w) => w.length > 0);
-  slugNoDash = slugNoDash.join('-');
-
-  return slugNoDash;
-};
-
-const generateRandomId = () => {
-  return Math.floor(Math.random() * 100000000000);
-};
-
 export default async function handler(req, res) {
-  const discountId = await prisma.discounts.findUnique({
-    where: { name: 'NO DISCOUNT' },
-  });
-
-  const mapCategoryToID = {
-    snowboards: await prisma.category.findUnique({
-      where: { category_name: 'snowboards' },
-    }),
-    boots: await prisma.category.findUnique({
-      where: { category_name: 'boots' },
-    }),
-    bindings: await prisma.category.findUnique({
-      where: { category_name: 'bindings' },
-    }),
-    goggles: await prisma.category.findUnique({
-      where: { category_name: 'goggles' },
-    }),
-    helmets: await prisma.category.findUnique({
-      where: { category_name: 'helmets' },
-    }),
-    gloves: await prisma.category.findUnique({
-      where: { category_name: 'gloves' },
-    }),
-    men: await prisma.category.findUnique({ where: { category_name: 'men' } }),
-    women: await prisma.category.findUnique({
-      where: { category_name: 'women' },
-    }),
-    kids: await prisma.category.findUnique({
-      where: { category_name: 'kids' },
-    }),
-  };
-
-  res.status(200).json(bindingsDataArray);
+  res.status(200).json('');
 }
 
 // ADD SNOWBOARDS
