@@ -10,6 +10,7 @@ import Link from 'next/link';
 function Button({ variant, value, onClick, icon, hasLink, link, ...rest }) {
   // if there is a className on the rest object, add it to the className
   const className = cx(s.button, rest.className, s[variant]);
+  delete rest.className;
 
   const button = (
     <button className={className} onClick={onClick} {...rest}>

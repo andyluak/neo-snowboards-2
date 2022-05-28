@@ -33,10 +33,17 @@ export default function Home() {
 
         <section className={cx(styles['section'], styles['creative_section'])}>
           <CreativeImage
+            title="Feel Safe Helmet"
+            image="/snowboard_helmet.webp"
+            alt="snowboard helmet"
+            buttonText="Shop Helmets Now"
+            buttonLink="#"
+          />
+          <CreativeImage
             title="Burton Snowboards"
             image="/man_on_snowboard.jpeg"
             alt="man on snowboard"
-            buttonText="Shop Burton Snowboards"
+            buttonText="Shop Snowboards"
             buttonLink="#"
           />
           <CreativeImage
@@ -51,13 +58,6 @@ export default function Home() {
             image="/snowboard_goggles.jpeg"
             alt="snowboard goggles"
             buttonText="Shop Goggles Now"
-            buttonLink="#"
-          />
-          <CreativeImage
-            title="Feel Safe Helmet"
-            image="/snowboard_helmet.webp"
-            alt="snowboard helmet"
-            buttonText="Shop Helmets Now"
             buttonLink="#"
           />
         </section>
