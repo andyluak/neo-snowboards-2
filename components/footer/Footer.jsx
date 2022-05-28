@@ -62,11 +62,41 @@ function Footer() {
           </ul>
         </div>
         <div className={s['footer_bottom_bar_social']}>
-            <CustomImage src="/utils/facebook.svg" alt="facebook" layout="fill" width="20px" height="20px" />
-            <CustomImage src="/utils/instagram.svg" alt="instagram" layout="fill" width="20px" height="20px" />
-            <CustomImage src="/utils/twitter.svg" alt="twitter" layout="fill" width="20px" height="20px" />
-            <CustomImage src="/utils/pinterest.svg" alt="pinterest" layout="fill" width="20px" height="20px" />
-            <CustomImage src="/utils/linkedin.svg" alt="pinterest" layout="fill" width="20px" height="20px" />
+          <CustomImage
+            src="/utils/facebook.svg"
+            alt="facebook"
+            layout="fill"
+            width="20px"
+            height="20px"
+          />
+          <CustomImage
+            src="/utils/instagram.svg"
+            alt="instagram"
+            layout="fill"
+            width="20px"
+            height="20px"
+          />
+          <CustomImage
+            src="/utils/twitter.svg"
+            alt="twitter"
+            layout="fill"
+            width="20px"
+            height="20px"
+          />
+          <CustomImage
+            src="/utils/pinterest.svg"
+            alt="pinterest"
+            layout="fill"
+            width="20px"
+            height="20px"
+          />
+          <CustomImage
+            src="/utils/linkedin.svg"
+            alt="pinterest"
+            layout="fill"
+            width="20px"
+            height="20px"
+          />
         </div>
       </div>
     </footer>

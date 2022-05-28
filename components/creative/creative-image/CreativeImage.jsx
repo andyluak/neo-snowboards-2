@@ -6,7 +6,7 @@ import Button from 'components/utils/button/Button';
 
 import s from './style.module.scss';
 
-function CreativeImage({ title, image, alt, buttonText, buttonLink  }) {
+function CreativeImage({ title, image, alt, buttonText, buttonLink }) {
   const [width] = useDeviceSize();
 
   const getDeviceType = () => {

@@ -150,8 +150,7 @@ h2 {
 }
 
 h1 {
-  $font_size: $base_font_size * $base_font_size_multiplier *
-    (1.333 * 1.333);
+  $font_size: $base_font_size * $base_font_size_multiplier * (1.333 * 1.333);
   font-size: $font_size;
   line-height: $font_size * $line_height_headings_multiplier;
   padding: 0.5rem 0;
@@ -177,7 +176,7 @@ section {
 }
 
 //select all section with not role="banner"
-section:not([role="banner"]) {
+section:not([role='banner']) {
   padding: $mobile_spacing;
 
   @include desktop() {

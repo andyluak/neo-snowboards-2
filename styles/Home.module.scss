@@ -25,7 +25,7 @@
   }
   position: relative;
   .hero_wrapper {
-    background-image: url("../public/shop-snowboards.png");
+    background-image: url('../public/shop-snowboards.png');
     filter: blur(5px);
     filter: brightness(0.5);
     height: 100%;
@@ -36,7 +36,7 @@
 
   .hero_content {
     position: absolute;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -45,7 +45,6 @@
     transform: translate(-50%, -50%);
     color: $white;
     width: 100%;
-    
   }
 }
 

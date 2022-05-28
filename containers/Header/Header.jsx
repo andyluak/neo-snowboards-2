@@ -20,8 +20,20 @@ function Header() {
       {!isMobile && (
         <div className={styles['header_actions']}>
           <a href="#">Sign In</a>
-          <CustomImage src="/utils/heart.svg" alt="favorites" layout="fill" width="24px" height="24px" />
-          <CustomImage src="/utils/basket.svg" alt="cart" layout="fill" width="24px" height="24px" />
+          <CustomImage
+            src="/utils/heart.svg"
+            alt="favorites"
+            layout="fill"
+            width="24px"
+            height="24px"
+          />
+          <CustomImage
+            src="/utils/basket.svg"
+            alt="cart"
+            layout="fill"
+            width="24px"
+            height="24px"
+          />
         </div>
       )}
     </header>
