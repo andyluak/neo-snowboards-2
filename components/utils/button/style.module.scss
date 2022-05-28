@@ -1,0 +1,63 @@
+@import 'styles/mixins';
+@import 'styles/variables';
+
+
+.button {
+    border: none;
+    outline: none;
+    margin-top: $base_font_size * 2;
+    font-size: 0.85rem;
+    min-width: 150px;
+    padding: 0.65rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    
+    span {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+   
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    .button_value::after {
+        @include pseudo();
+        transition: all 0.2s ease-in-out;
+    }
+
+    @include desktop() {
+        font-size: 1rem;
+    }
+
+    @include large-desktop() {
+        font-size: 1.2rem;
+    }
+
+    &:hover {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        .button_value::after {
+            width: 80%;
+            height: 2px;
+            background-color: $white;
+            bottom: 13%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
+.primary {
+    color: $white;
+    background-color: $primary_color;
+}
+
+.secondary {
+    color: $white;
+    background-color: $grey;
+}
+
+.tertiary {
+    background: transparent;
+    color: $white;
+}
