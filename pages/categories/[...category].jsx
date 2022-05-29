@@ -1,14 +1,17 @@
 import React from 'react';
+import cx from 'classnames';
 
 import MainLayout from '/components/layouts/main-layout/MainLayout';
 import CategoryList from '/components/category/category-list/CategoryList';
 
 import { server } from '/config';
 
+import s from '/styles/Category.module.scss';
+
 function CategoryType({ category, productsByCategory }) {
   return (
-    <section>
-      <h1 className="capitalize">{category}</h1>
+    <section className={s['category_page']}>
+      <h1 className={cx('capitalize', s['category_page_title'])}>{category}</h1>
       {Object.keys(productsByCategory).map((key, index) => {
         return (
           <CategoryList
