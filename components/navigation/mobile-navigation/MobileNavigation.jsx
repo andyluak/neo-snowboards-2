@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
+import Link from 'next/link';
 
 import CustomImage from 'components/utils/CustomImage';
+import { navItems } from '/config/navItems';
 
 import styles from './style.module.scss';
 
@@ -36,18 +38,13 @@ function MobileNavigation() {
             height="24px"
             onClick={onClickHamburger}
           />
-          <li>
-            <a href="#">Snowboards</a>
-          </li>
-          <li>
-            <a href="#">Boots</a>
-          </li>
-          <li>
-            <a href="#">Bindings</a>
-          </li>
-          <li>
-            <a href="#">Accesories</a>
-          </li>
+          {navItems.map(({ name, url }) => (
+            <li key={name}>
+              <Link href={`/categories${url}`}>
+                <a>{name}</a>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>

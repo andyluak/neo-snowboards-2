@@ -1,4 +1,6 @@
 import React from 'react';
+import cx from 'classnames';
+
 import useDeviceSize from 'utils/hooks/useDeviceSize';
 
 import CustomImage from 'components/utils/CustomImage';
@@ -6,9 +8,17 @@ import Button from 'components/utils/button/Button';
 
 import s from './style.module.scss';
 
-function CreativeImage({ title, image, alt, buttonText, buttonLink }) {
+function CreativeImage({
+  title,
+  image,
+  alt,
+  buttonText,
+  buttonLink,
+  className,
+}) {
   const [width] = useDeviceSize();
 
+  const wrapperClassName = cx(s['creative_image_wrapper'], className);
   const getDeviceType = () => {
     if (width > 768) {
       if (width > 1440) {
@@ -34,7 +44,7 @@ function CreativeImage({ title, image, alt, buttonText, buttonLink }) {
     },
   };
   return (
-    <div className={s['creative_image_wrapper']}>
+    <div className={wrapperClassName}>
       <div className={s['creative_image_overlay']} />
       <CustomImage
         src={image}

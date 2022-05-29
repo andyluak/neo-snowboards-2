@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import cx from 'classnames';
 
-import Header from 'containers/Header/Header';
+import Header from 'containers/header/Header';
 
 import styles from 'styles/Home.module.scss';
 import Button from 'components/utils/button/Button';
