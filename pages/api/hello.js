@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-  res.status(200).json('');
+    res.status(200).json('');
 }
 
 // ADD SNOWBOARDS

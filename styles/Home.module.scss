@@ -2,59 +2,62 @@
 @import 'variables';
 
 .header {
-  padding: $mobile_spacing;
+    padding: $mobile_spacing;
 
-  @include desktop() {
-    padding: $desktop_spacing;
-  }
+    @include desktop() {
+        padding: $desktop_spacing;
+    }
 
-  @include large-desktop() {
-    padding: $large_desktop_spacing;
-  }
+    @include large-desktop() {
+        padding: $large_desktop_spacing;
+    }
 }
 
 .hero {
-  height: 40vh;
+    height: 40vh;
 
-  @include desktop() {
-    height: 50vh;
-  }
+    @include desktop() {
+        height: 50vh;
+    }
 
-  @include large-desktop() {
-    height: 60vh;
-  }
-  position: relative;
-  .hero_wrapper {
-    background-image: url('../public/shop-snowboards.png');
-    filter: blur(5px);
-    filter: brightness(0.5);
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    color: $black;
-  }
+    @include large-desktop() {
+        height: 60vh;
+    }
+    position: relative;
+    .hero_wrapper {
+        background-image: url('../public/shop-snowboards.png');
+        filter: blur(5px);
+        filter: brightness(0.5);
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        color: $black;
+    }
 
-  .hero_content {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: $white;
-    width: 100%;
-  }
+    .hero_content {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $white;
+        width: 100%;
+    }
 }
 
 .creative_section {
-  // create a grid layout with 2 rows and vertical gap of 1rem and no horizontal gap and on mobile to be 1 column
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem;
-  @include mobile() {
-    grid-template-columns: 1fr;
-  }
-  justify-items: center;
+    // create a grid layout with 2 rows and vertical gap of 1rem and no horizontal gap and on mobile to be 1 column
+    display: grid;
+    padding: 0;
+    grid-template-columns: repeat(2, 1fr);
+    width: 50%;
+    margin: 0 auto;
+    grid-gap: 1rem 0;
+    @include mobile() {
+        grid-template-columns: 1fr;
+    }
+    justify-items: center;
 }

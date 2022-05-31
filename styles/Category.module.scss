@@ -2,9 +2,9 @@
 @import 'styles/variables';
 
 .category_page_title {
-  text-align: center;
+    text-align: center;
 
-  @include desktop() {
-    text-align: left;
-  }
+    @include desktop() {
+        text-align: left;
+    }
 }

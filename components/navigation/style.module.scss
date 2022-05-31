@@ -2,15 +2,15 @@
 @import 'styles/variables';
 
 .navigation ul {
-  display: flex;
-  gap: 2rem;
-  @include desktop() {
-    font-size: 1.1rem;
-    gap: 4rem;
-  }
+    display: flex;
+    gap: 2rem;
+    @include desktop() {
+        font-size: 1.1rem;
+        gap: 4rem;
+    }
 
-  @include large-desktop() {
-    font-size: 1.2rem;
-    gap: 6rem;
-  }
+    @include large-desktop() {
+        font-size: 1.2rem;
+        gap: 6rem;
+    }
 }

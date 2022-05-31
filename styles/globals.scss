@@ -86,12 +86,12 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -105,108 +105,109 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
+    display: block;
 }
 body {
-  line-height: 1;
+    line-height: 1;
 }
 ol,
 ul {
-  list-style: none;
+    list-style: none;
 }
 blockquote,
 q {
-  quotes: none;
+    quotes: none;
 }
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
-  content: none;
+    content: '';
+    content: none;
 }
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 h4 {
-  $font_size: $base_font_size * $base_font_size_multiplier * 1.333;
-  font-size: $font_size;
-  line-height: $font_size * $line_height_headings_multiplier;
+    $font_size: $base_font_size * $base_font_size_multiplier * 1.333;
+    font-size: $font_size;
+    line-height: $font_size * $line_height_headings_multiplier;
 }
 
 h3 {
-  $font_size: $base_font_size * $base_font_size_multiplier * (1.333 * 1.333);
-  font-size: $font_size;
-  line-height: $font_size * $line_height_headings_multiplier;
+    $font_size: $base_font_size * $base_font_size_multiplier * (1.333 * 1.333);
+    font-size: $font_size;
+    line-height: $font_size * $line_height_headings_multiplier;
 }
 
 h2 {
-  $font_size: $base_font_size * $base_font_size_multiplier *
-    (1.333 * 1.333 * 1.333);
-  font-size: $font_size;
-  line-height: $font_size * $line_height_headings_multiplier;
+    $font_size: $base_font_size * $base_font_size_multiplier *
+        (1.333 * 1.333 * 1.333);
+    font-size: $font_size;
+    line-height: $font_size * $line_height_headings_multiplier;
 }
 
 h1 {
-  $font_size: $base_font_size * $base_font_size_multiplier * (1.333 * 1.333);
-  font-size: $font_size;
-  line-height: $font_size * $line_height_headings_multiplier;
-  padding: 0.5rem 0;
+    $font_size: $base_font_size * $base_font_size_multiplier * (1.333 * 1.333);
+    font-size: $font_size;
+    line-height: $font_size * $line_height_headings_multiplier;
+    padding: 0.5rem 0;
 
-  @include desktop() {
-    font-size: $font_size * 1.333;
-    line-height: $font_size * $line_height_headings_multiplier * 1.333;
-    padding: 0.75rem 0;
-  }
+    @include desktop() {
+        font-size: $font_size * 1.333;
+        line-height: $font_size * $line_height_headings_multiplier * 1.333;
+        padding: 0.75rem 0;
+    }
 
-  @include large-desktop() {
-    font-size: $font_size * 1.333 * 1.333;
-    line-height: $font_size * $line_height_headings_multiplier * 1.333 * 1.333;
-    padding: 1rem 0;
-  }
+    @include large-desktop() {
+        font-size: $font_size * 1.333 * 1.333;
+        line-height: $font_size * $line_height_headings_multiplier * 1.333 *
+            1.333;
+        padding: 1rem 0;
+    }
 }
 
 section {
-  margin-bottom: 2rem;
-  @include desktop() {
-    margin-bottom: 4rem;
-  }
+    margin-bottom: 2rem;
+    @include desktop() {
+        margin-bottom: 4rem;
+    }
 }
 
 //select all section with not role="banner"
 section:not([role='banner']) {
-  padding: $mobile_spacing;
+    padding: $mobile_spacing;
 
-  @include desktop() {
-    padding: $desktop_spacing;
-  }
+    @include desktop() {
+        padding: $desktop_spacing;
+    }
 
-  @include large-desktop() {
-    padding: $large_desktop_spacing;
-  }
+    @include large-desktop() {
+        padding: $large_desktop_spacing;
+    }
 }
 
 html,
 body {
-  font-family: Poppins, sans-serif;
-  background-color: $background_color;
-  color: $white;
+    font-family: Poppins, sans-serif;
+    background-color: $background_color;
+    color: $white;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  letter-spacing: 0.5px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    letter-spacing: 0.5px;
 }
 
 .capitalize {
-  text-transform: capitalize;
+    text-transform: capitalize;
 }

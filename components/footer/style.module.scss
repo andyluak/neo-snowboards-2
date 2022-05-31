@@ -2,61 +2,61 @@
 @import 'styles/variables';
 
 .footer {
-  padding: 1rem 0;
-  .footer_top_bar {
-    background: $white;
-    padding: 1rem 2rem;
+    padding: 1rem 0;
+    .footer_top_bar {
+        background: $white;
+        padding: 1rem 2rem;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
 
-    .footer_top_bar_icon_group {
-      span {
-        color: $black;
-        font-size: 0.85rem;
-      }
+        .footer_top_bar_icon_group {
+            span {
+                color: $black;
+                font-size: 0.85rem;
+            }
 
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
     }
-  }
 
-  .footer_bottom_bar {
-    .footer_bottom_bar_lists {
-      display: grid;
-      padding: $mobile_spacing;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      gap: 1.2rem;
-      place-content: center;
-      justify-items: center;
+    .footer_bottom_bar {
+        .footer_bottom_bar_lists {
+            display: grid;
+            padding: $mobile_spacing;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1.2rem;
+            place-content: center;
+            justify-items: center;
 
-      .footer_bottom_bar_list {
-        font-size: 0.85rem;
+            .footer_bottom_bar_list {
+                font-size: 0.85rem;
 
-        .footer_bottom_bar_list_header {
-          margin-bottom: 0.5rem;
+                .footer_bottom_bar_list_header {
+                    margin-bottom: 0.5rem;
+                }
+
+                .footer_bottom_bar_list_item {
+                    font-weight: 300;
+                }
+            }
         }
 
-        .footer_bottom_bar_list_item {
-          font-weight: 300;
+        .footer_bottom_bar_social {
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+
+            .footer_bottom_bar_social_icon {
+                color: $black;
+                font-size: 0.85rem;
+            }
         }
-      }
     }
-
-    .footer_bottom_bar_social {
-      padding: 1rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-
-      .footer_bottom_bar_social_icon {
-        color: $black;
-        font-size: 0.85rem;
-      }
-    }
-  }
 }

@@ -2,37 +2,38 @@
 @import 'styles/variables';
 
 .header {
-  padding: $mobile_spacing;
+    padding: $mobile_spacing;
 
-  .header_logo_container {
-    position: relative;
-    width: 50px;
-    height: 50px;
-  }
+    .header_logo_container {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  .header_actions {
     display: flex;
-    gap: 2rem;
+    justify-content: space-between;
     align-items: center;
-  }
-
-  @include desktop() {
-    padding: $desktop_spacing;
 
     .header_actions {
-      font-size: 1.1rem;
+        display: flex;
+        gap: 2rem;
+        align-items: center;
     }
-  }
 
-  @include large-desktop() {
-    padding: $large_desktop_spacing;
+    @include desktop() {
+        padding: $desktop_spacing;
 
-    .header_actions {
-      font-size: 1.2rem;
+        .header_actions {
+            font-size: 1.1rem;
+        }
     }
-  }
+
+    @include large-desktop() {
+        padding: $large_desktop_spacing;
+
+        .header_actions {
+            font-size: 1.2rem;
+        }
+    }
 }

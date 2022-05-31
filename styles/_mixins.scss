@@ -1,31 +1,31 @@
 @mixin pseudo($display: block, $pos: absolute, $content: '') {
-  content: $content;
-  display: $display;
-  position: $pos;
+    content: $content;
+    display: $display;
+    position: $pos;
 }
 
 //Adding Truncation to an element isn't as simple as it should be, although it is with this handy time saver, meaning when you include the mixin, you only have to specify your boundry with a max width value, happy days!
 @mixin truncate($truncation-boundary) {
-  max-width: $truncation-boundary;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    max-width: $truncation-boundary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 @mixin mobile() {
-  @media (max-width: $mobile-breakpoint) {
-    @content;
-  }
+    @media (max-width: $mobile-breakpoint) {
+        @content;
+    }
 }
 
 @mixin desktop() {
-  @media (min-width: $desktop-breakpoint) {
-    @content;
-  }
+    @media (min-width: $desktop-breakpoint) {
+        @content;
+    }
 }
 
 @mixin large-desktop() {
-  @media (min-width: $large-desktop-breakpoint) {
-    @content;
-  }
+    @media (min-width: $large-desktop-breakpoint) {
+        @content;
+    }
 }
