@@ -34,10 +34,10 @@ export const getSizesByValue = async (type, gender) => {
         },
     });
 
-    if( type !== 'snowboards') return sizes;
+    if (type !== 'snowboards') return sizes;
 
     // convert all sizes from string to int and remove duplicates
-    const formattedSizes = sizes.reduce((prev, curr)=> {
+    const formattedSizes = sizes.reduce((prev, curr) => {
         const sizes = curr.sizes.split(',');
         const formattedSizes = sizes.map((size) => {
             return parseInt(size);
@@ -63,8 +63,8 @@ export const getMinMaxPriceByType = async (type, gender) => {
         },
         take: 1,
         select: {
-            price: true
-        }
+            price: true,
+        },
     });
 
     const maxPrice = await prisma.products.findMany({
@@ -80,8 +80,8 @@ export const getMinMaxPriceByType = async (type, gender) => {
         },
         take: 1,
         select: {
-            price: true
-        }
+            price: true,
+        },
     });
 
     const minMaxPrice = {

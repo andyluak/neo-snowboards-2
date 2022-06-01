@@ -45,7 +45,7 @@ export async function getServerSideProps(context) {
     return {
         props: {
             filters,
-            products
+            products,
         },
     };
 }
