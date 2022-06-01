@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 
 import Button from '/components/utils/button/Button.jsx';
 
-function Filters() {
+function Filters({filters}) {
     const [showFilters, setShowFilters] = useState(true);
-    console.log(showFilters);
     return (
         <div>
             <Button
