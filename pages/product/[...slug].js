@@ -119,7 +119,7 @@ function ProductPage() {
 }
 
 ProductPage.getLayout = (page) => {
-    return <MainLayout >{page}</MainLayout>;
+    return <MainLayout>{page}</MainLayout>;
 };
 
 export async function getServerSideProps(context) {
