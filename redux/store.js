@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 
 import shopSlice from '/redux/slices/shopSlice';
+import productSlice from '/redux/slices/productSlice';
 
 const initialState = {
     pokemon: [],
@@ -58,6 +59,7 @@ export default function getStore(incomingPreloadState) {
     store = configureStore({
         reducer: {
             shop: shopSlice.reducer,
+            product: productSlice.reducer,
         },
         preloadedState: incomingPreloadState,
         middleware: (getDefaultMiddleware) =>

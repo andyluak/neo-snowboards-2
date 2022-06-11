@@ -10,7 +10,7 @@ import s from './style.module.scss';
 function FilterGroup({ type, filters }) {
     const dispatch = useDispatch();
     const taggedFilters = useSelector(selectTaggedFilters);
-    console.log(type);
+
     const brandFilters = () => {
         const onChange = (e) =>
             dispatch(
@@ -62,14 +62,14 @@ function FilterGroup({ type, filters }) {
         );
     }
 
-    if (type === 'size') {
-        return (
-            <div className={s['filter_group']}>
-                <h5 className={s['filter_group_title']}>Sizes</h5>
-                {sizeFilters()}
-            </div>
-        );
-    }
+    // if (type === 'size') {
+    //     return (
+    //         <div className={s['filter_group']}>
+    //             <h5 className={s['filter_group_title']}>Sizes</h5>
+    //             {sizeFilters()}
+    //         </div>
+    //     );
+    // }
     return <div>FilterGroup</div>;
 }
 
