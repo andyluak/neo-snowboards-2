@@ -1,10 +1,8 @@
 import prisma from '/lib/prisma';
 
 export const getBrandsByType = async (type, gender) => {
-    const brandNames = await prisma.products.findMany({
-        select: {
-            brand: true,
-        },
+    const brandNames = await prisma.products.groupBy({
+        by: ['brand'],
         where: {
             categories: {
                 every: {
@@ -12,8 +10,13 @@ export const getBrandsByType = async (type, gender) => {
                 },
             },
         },
-        distinct: ['brand'],
+        orderBy: {
+            brand: 'asc',
+        },
+        _count: true,
     });
+
+    // sort brandNames alfabetica
     return brandNames;
 };
 

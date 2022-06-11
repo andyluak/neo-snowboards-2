@@ -5,7 +5,18 @@ import Grid from '/components/Grid/Grid';
 
 import MainLayout from '/components/layouts/main-layout/MainLayout';
 
+import getStore, {
+    getPokemon,
+    selectFilteredPokemon,
+    selectSearch,
+    rehydrate,
+    setSearch,
+} from '/redux/store';
+import { useSelector } from 'react-redux';
+
 function Playground() {
+    const pokemon = useSelector(selectFilteredPokemon);
+    console.log(pokemon);
     return (
         <>
             <section>
@@ -69,5 +80,16 @@ function Playground() {
 Playground.getLayout = (page) => {
     return <MainLayout>{page}</MainLayout>;
 };
+
+export async function getServerSideProps(context) {
+    const store = getStore();
+    await store.dispatch(getPokemon());
+
+    return {
+        props: {
+            initialState: store.getState(),
+        },
+    };
+}
 
 export default Playground;

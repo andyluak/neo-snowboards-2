@@ -14,8 +14,7 @@ export default async function handler(req, res) {
                 },
             },
         },
-        take: 10,
     });
 
-    res.status(200).json({ getProductsByType });
+    res.status(200).json(getProductsByType);
 }

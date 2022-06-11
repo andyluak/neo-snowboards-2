@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
+import FilterGroup from '../../components/Filter/FilterGroup/FilterGroup';
 
-import Button from '/components/utils/button/Button.jsx';
+import s from './style.module.scss';
 
 function Filters({ filters }) {
-    const [showFilters, setShowFilters] = useState(true);
+    let filterTypes = Object.keys(filters);
     return (
-        <div>
-            <Button
-                variant="tertiary"
-                value="Hide Filters"
-                onClick={() => setShowFilters(!showFilters)}
-            />
-        </div>
+        <section className={s['filters_section']}>
+            {filterTypes.map((type, index) => {
+                return (
+                    <FilterGroup
+                        key={index}
+                        type={type}
+                        filters={filters[type]}
+                    />
+                );
+            })}
+        </section>
     );
 }
 

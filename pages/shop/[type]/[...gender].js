@@ -1,16 +1,31 @@
 import React from 'react';
-
-import { server } from '/config';
+import { useSelector, useDispatch } from 'react-redux';
 
 import MainLayout from '/components/layouts/main-layout/MainLayout.jsx';
-
 import Filters from 'containers/Filters/Filters';
+import Products from 'containers/Products/Products';
+import FilterHeader from 'components/Filter/FilterHeader/FilterHeader';
 
-function ShopPageGender({ filters, products }) {
-    console.log(products);
+import getStore from '/redux/store';
+import {
+    getProducts,
+    getFilters,
+    selectFilteredProducts,
+    selectFilters,
+} from '/redux/slices/shopSlice';
+
+import s from '/styles/shop.module.scss';
+
+function ShopPageGender() {
+    const filteredProducts = useSelector(selectFilteredProducts);
+    const filters = useSelector(selectFilters);
     return (
-        <section>
-            <Filters filters={filters} />
+        <section className={s['shop_section']}>
+            <FilterHeader />
+            <div className={s['shop_section_filters_products']}>
+                <Filters filters={filters}/>
+                <Products products={filteredProducts} />
+            </div>
         </section>
     );
 }
@@ -20,32 +35,15 @@ ShopPageGender.getLayout = (page) => {
 };
 
 export async function getServerSideProps(context) {
-    const { type, gender } = context.params;
+    const { type, gender } = context.query;
+    const store = getStore();
 
-    // fetch to fetch(`${server}/api/brand`) and send type and gender
-    let res = await fetch(`${server}/api/filters`, {
-        method: 'POST',
-        body: JSON.stringify({
-            type,
-            gender,
-        }),
-    });
+    await store.dispatch(getProducts({ type, gender }));
+    await store.dispatch(getFilters({ type, gender }));
 
-    let filters = await res.json();
-
-    res = await fetch(`${server}/api/products`, {
-        method: 'POST',
-        body: JSON.stringify({
-            type,
-            gender,
-        }),
-    });
-
-    let products = await res.json();
     return {
         props: {
-            filters,
-            products,
+            initialState: store.getState(),
         },
     };
 }

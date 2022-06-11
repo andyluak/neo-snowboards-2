@@ -1,0 +1,8 @@
+section.products_section {
+    // unset padding for the section
+    padding: unset;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 70%;
+}

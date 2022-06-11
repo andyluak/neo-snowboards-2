@@ -8,14 +8,20 @@ import useDeviceSize from 'utils/hooks/useDeviceSize';
 import styles from './style.module.scss';
 import Link from 'next/link';
 
-function Header() {
+const Header = () => {
     const [width, height] = useDeviceSize();
     const isMobile = width < 768;
     return (
         <header className={styles['header']}>
             <div className={styles['header_logo_container']}>
-                <Link href="/">
-                    <Image src="/logo.svg" alt="Snowboard Shop" layout="fill" />
+                <Link href="/" passHref>
+                    <a>
+                        <Image
+                            src="/logo.svg"
+                            alt="Snowboard Shop"
+                            layout="fill"
+                        />
+                    </a>
                 </Link>
             </div>
 
@@ -41,6 +47,6 @@ function Header() {
             )}
         </header>
     );
-}
+};
 
 export default Header;

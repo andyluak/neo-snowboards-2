@@ -21,7 +21,7 @@ function CategoryList({ products, category }) {
                     variant="tertiary"
                     value="See All"
                     link={`/shop/${currentCategory}/${category.category_name}`}
-                    hasLink="true"
+                    hasLink={true}
                 />
                 {products.map((product) => {
                     return (

@@ -1,28 +1,19 @@
 import prisma from '/lib/prisma';
+import { getBrandsByType } from '/utils/filters/getFilterValue';
 
 export default async function handler(req, res) {
-    // get all distinct brand names based from category
-    const brandNames = await prisma.products.findMany({
-        select: {
-            brand: true,
+    // get the snowboards count for each brand
+    let brandsWithCount = await prisma.products.groupBy({
+        by: ['brand'],
+        where: {
             categories: {
-                where: {
-                    category_name: {
-                        contains: 'snowboards',
-                    },
+                every: {
+                    category_name: { in: ['snowboards', 'men'] },
                 },
             },
         },
-        distinct: ['brand'],
+        _count: true
     });
 
-    //   const groupBrandNames = await prisma.products.groupBy({
-    //     by: ['brand'],
-    //     _count: {
-    //       _all: true,
-    //       brand: true,
-    //     },
-    //   });
-
-    res.status(200).json(brandNames);
+    res.status(200).json(brandsWithCount);
 }

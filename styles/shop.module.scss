@@ -1,0 +1,11 @@
+.shop_section {
+    display:flex;
+    flex-direction: column;
+}
+
+.shop_section_filters_products {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
