@@ -2,7 +2,7 @@
 @import 'styles/variables';
 
 .products_product_wrapper {
-    display:flex;
+    display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
@@ -26,9 +26,8 @@
     }
 }
 
-
-.product_product_wrapper_details{
-    display:flex;
+.product_product_wrapper_details {
+    display: flex;
     flex-direction: column;
     gap: 0.7rem;
     .product_details_name {
@@ -39,6 +38,5 @@
 
     .product_details_price {
         font-size: 0.9rem;
-        
     }
 }

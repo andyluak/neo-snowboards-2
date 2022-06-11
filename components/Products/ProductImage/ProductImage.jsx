@@ -11,10 +11,15 @@ const ProductImage = ({ image, name, className }) => {
 
     return (
         <div className={s['product_image_wrapper']}>
-            <Image src={`/images/${type}/${gender}/${image}`} alt={name} width={275} height={300} className={className}/>
+            <Image
+                src={`/images/${type}/${gender}/${image}`}
+                alt={name}
+                width={275}
+                height={300}
+                className={className}
+            />
         </div>
     );
-}
-
+};
 
 export default ProductImage;

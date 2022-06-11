@@ -23,7 +23,7 @@ function ShopPageGender() {
         <section className={s['shop_section']}>
             <FilterHeader />
             <div className={s['shop_section_filters_products']}>
-                <Filters filters={filters}/>
+                <Filters filters={filters} />
                 <Products products={filteredProducts} />
             </div>
         </section>

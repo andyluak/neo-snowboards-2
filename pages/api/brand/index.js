@@ -12,7 +12,7 @@ export default async function handler(req, res) {
                 },
             },
         },
-        _count: true
+        _count: true,
     });
 
     res.status(200).json(brandsWithCount);

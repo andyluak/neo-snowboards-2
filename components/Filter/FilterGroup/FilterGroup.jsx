@@ -41,16 +41,18 @@ function FilterGroup({ type, filters }) {
     const sizeFilters = () => {
         const onChange = (e) => {
             dispatch(setFilters( createTaggedFiltersObject(type,e.target.value,taggedFilters) )); //prettier-ignore
-        }
+        };
 
         return filters.map((filter, index) => {
             return (
                 <div key={index} className={s['filter_group_size_container']}>
-                    <button onClick={onChange} value={filter}>{filter}</button>
+                    <button onClick={onChange} value={filter}>
+                        {filter}
+                    </button>
                 </div>
-            )
-        })
-    }
+            );
+        });
+    };
     if (type === 'brand') {
         return (
             <div className={s['filter_group']}>
@@ -60,13 +62,13 @@ function FilterGroup({ type, filters }) {
         );
     }
 
-    if ( type === 'size' ) {
+    if (type === 'size') {
         return (
             <div className={s['filter_group']}>
                 <h5 className={s['filter_group_title']}>Sizes</h5>
                 {sizeFilters()}
             </div>
-        )
+        );
     }
     return <div>FilterGroup</div>;
 }

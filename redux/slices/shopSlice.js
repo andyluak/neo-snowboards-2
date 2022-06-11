@@ -111,11 +111,11 @@ const shopSlice = createSlice({
                 // get object keys
                 let filteredKeys = Object.keys(isValid);
                 // verify if all keys are true
-                
+
                 if (filteredKeys.length !== 0) {
                     isValid = filteredKeys.every((key) => {
                         return isValid[key];
-                    })
+                    });
                 }
 
                 return isValid;
