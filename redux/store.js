@@ -1,69 +1,54 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
+import storage from 'redux-persist/lib/storage';
+import { combineReducers } from 'redux';
+import {
+    persistReducer,
+    FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER,
+} from 'redux-persist';
 
 import shopSlice from '/redux/slices/shopSlice';
 import productSlice from '/redux/slices/productSlice';
+import cartSlice from 'redux/slices/cartSlice';
 
-const initialState = {
-    pokemon: [],
-    filteredPokemon: [],
-    search: '',
-    pending: false,
-    error: false,
+const reducers = combineReducers({
+    shop: shopSlice.reducer,
+    product: productSlice.reducer,
+    cart: cartSlice.reducer,
+});
+
+const persistConfig = {
+    key: 'root',
+    storage,
+    whitelist: ['cart'],
 };
 
-export const getPokemon = createAsyncThunk('pokemon/getPokemon', async () => {
-    const response = await await fetch(
-        'https://jherr-pokemon.s3.us-west-1.amazonaws.com/index.json'
-    );
-    return await response.json();
-});
-
-export const pokemonSlice = createSlice({
-    name: 'pokemon',
-    initialState,
-    reducers: {
-        setSearch(state, action) {
-            state.search = action.payload;
-            state.filteredPokemon = state.pokemon.filter(({ name }) =>
-                name.toLowerCase().includes(state.search.toLowerCase())
-            );
-        },
-    },
-    extraReducers: (builder) => {
-        builder
-            .addCase(getPokemon.pending, (state) => {
-                state.pending = true;
-            })
-            .addCase(getPokemon.fulfilled, (state, { payload }) => {
-                state.pending = false;
-                state.pokemon = payload;
-                state.filteredPokemon = payload;
-            })
-            .addCase(getPokemon.rejected, (state) => {
-                state.pending = false;
-                state.error = true;
-            });
-    },
-});
-
-export const { setSearch } = pokemonSlice.actions;
-
-export const selectSearch = (state) => state.pokemon.search;
-export const selectFilteredPokemon = (state) => state.pokemon.filteredPokemon;
+const persistedReducer = persistReducer(persistConfig, reducers);
 
 export let store = null;
 
 export default function getStore(incomingPreloadState) {
     store = configureStore({
-        reducer: {
-            shop: shopSlice.reducer,
-            product: productSlice.reducer,
-        },
+        reducer: persistedReducer,
         preloadedState: incomingPreloadState,
         middleware: (getDefaultMiddleware) =>
-            getDefaultMiddleware().concat(logger),
+            getDefaultMiddleware({
+                serializableCheck: {
+                    ignoredActions: [
+                        FLUSH,
+                        REHYDRATE,
+                        PAUSE,
+                        PERSIST,
+                        PURGE,
+                        REGISTER,
+                    ],
+                },
+            }).concat([logger]),
     });
     return store;
 }

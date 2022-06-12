@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import MainLayout from '/components/layouts/main-layout/MainLayout.jsx';
 import Filters from 'containers/Filters/Filters';

@@ -1,12 +1,11 @@
 import Head from 'next/head';
 import cx from 'classnames';
 
-import Header from 'containers/header/Header';
-
-import styles from 'styles/Home.module.scss';
 import Button from 'components/utils/button/Button';
 import CreativeImage from '../components/creative/creative-image/CreativeImage';
-import Footer from '../components/footer/Footer';
+import MainLayout from '../components/layouts/main-layout/MainLayout';
+
+import styles from 'styles/Home.module.scss';
 
 export default function Home() {
     return (
@@ -14,7 +13,6 @@ export default function Home() {
             <Head>
                 <title>Neo Snowboarding</title>
             </Head>
-            <Header />
             <main>
                 <section className={styles['hero']} role="banner">
                     <div className={styles['hero_wrapper']}></div>
@@ -69,7 +67,8 @@ export default function Home() {
                     />
                 </section>
             </main>
-            <Footer />
         </>
     );
 }
+
+Home.getLayout = (page) => <MainLayout>{page}</MainLayout>;

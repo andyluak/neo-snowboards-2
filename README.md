@@ -32,3 +32,7 @@ npx prisma studio
 #### Add redux
 
 #### Build home, category, products, product pages, cart page, checkout page
+
+TODO
+
+Add discount code

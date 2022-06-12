@@ -1,0 +1,24 @@
+@import 'styles/mixins';
+@import 'styles/variables';
+
+.product_quantity {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    button {
+        font-size: 2rem;
+        cursor: pointer;
+        user-select: none;
+        background: transparent;
+        border: 0;
+        color: $white;
+    }
+
+    input {
+        width: 15%;
+        padding: 1rem 0.5rem;
+        font-size: 1.3rem;
+        text-align: center;
+    }
+}

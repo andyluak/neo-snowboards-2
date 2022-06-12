@@ -1,16 +1,28 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 import CustomImage from 'components/utils/CustomImage';
+import CartIcon from 'components/Cart/CartIcon/CartIcon';
 import Navigation from 'components/navigation/Navigation';
 import useDeviceSize from 'utils/hooks/useDeviceSize';
 
+import {
+    selectCartTotalQuantity,
+    selectCartItems,
+    selectCartTotal,
+} from 'redux/slices/cartSlice';
+
 import styles from './style.module.scss';
-import Link from 'next/link';
 
 const Header = () => {
     const [width, height] = useDeviceSize();
     const isMobile = width < 768;
+    const cartTotalQuantity = useSelector(selectCartTotalQuantity);
+    const cartItems = useSelector(selectCartItems);
+    const cartTotal = useSelector(selectCartTotal);
+
     return (
         <header className={styles['header']}>
             <div className={styles['header_logo_container']}>
@@ -33,15 +45,13 @@ const Header = () => {
                         src="/utils/heart.svg"
                         alt="favorites"
                         layout="fill"
-                        width="24px"
-                        height="24px"
+                        width="28px"
+                        height="28px"
                     />
-                    <CustomImage
-                        src="/utils/basket.svg"
-                        alt="cart"
-                        layout="fill"
-                        width="24px"
-                        height="24px"
+                    <CartIcon
+                        cartItems={cartItems}
+                        cartTotalQuantity={cartTotalQuantity}
+                        cartTotal={cartTotal}
                     />
                 </div>
             )}

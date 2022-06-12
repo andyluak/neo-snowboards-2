@@ -47,12 +47,12 @@ model Snowboards {
   product       Products @relation(fields: [product_id], references: [id], onDelete: Cascade)
   product_id    Int
   sizes         String
-  ability_level String @default("")
-  terrain       String @default("")
-  rocker_type   String @default("")
-  shape         String @default("")
-  flex_rating   String @default("")
-  core          String @default("")
+  ability_level String   @default("")
+  terrain       String   @default("")
+  rocker_type   String   @default("")
+  shape         String   @default("")
+  flex_rating   String   @default("")
+  core          String   @default("")
   created_at    DateTime @default(now())
   updated_at    DateTime @default(now()) @updatedAt
 }
@@ -62,10 +62,10 @@ model Boots {
   product       Products @relation(fields: [product_id], references: [id], onDelete: Cascade)
   product_id    Int
   sizes         String   @default("S M L XL")
-  ability_level String @default("")
-  flex_rating   String @default("")
-  lacing_system String @default("")
-  binding_style String @default("")
+  ability_level String   @default("")
+  flex_rating   String   @default("")
+  lacing_system String   @default("")
+  binding_style String   @default("")
   created_at    DateTime @default(now())
   updated_at    DateTime @default(now()) @updatedAt
 }
@@ -75,9 +75,9 @@ model Bindings {
   product       Products @relation(fields: [product_id], references: [id], onDelete: Cascade)
   product_id    Int
   sizes         String   @default("S M L XL")
-  ability_level String @default("")
-  flex_rating   String @default("")
-  binding_style String @default("")
+  ability_level String   @default("")
+  flex_rating   String   @default("")
+  binding_style String   @default("")
   created_at    DateTime @default(now())
   updated_at    DateTime @default(now()) @updatedAt
 }
@@ -87,13 +87,13 @@ model Helmets {
   product            Products @relation(fields: [product_id], references: [id], onDelete: Cascade)
   product_id         Int
   sizes              String   @default("S M L XL")
-  material           String @default("")
-  style              String @default("")
-  venting            String @default("")
-  audio              String @default("")
-  removable_ear_pads String @default("")
-  adjustable_fit     String @default("")
-  weight             String @default("")
+  material           String   @default("")
+  style              String   @default("")
+  venting            String   @default("")
+  audio              String   @default("")
+  removable_ear_pads String   @default("")
+  adjustable_fit     String   @default("")
+  weight             String   @default("")
   created_at         DateTime @default(now())
   updated_at         DateTime @default(now()) @updatedAt
 }
@@ -103,10 +103,10 @@ model Goggles {
   product           Products @relation(fields: [product_id], references: [id], onDelete: Cascade)
   product_id        Int
   sizes             String   @default("S M L XL")
-  frame_size        String @default("")
-  lens_type         String @default("")
-  quick_lens        String @default("")
-  helmet_compatible String @default("")
+  frame_size        String   @default("")
+  lens_type         String   @default("")
+  quick_lens        String   @default("")
+  helmet_compatible String   @default("")
   created_at        DateTime @default(now())
   updated_at        DateTime @default(now()) @updatedAt
 }
@@ -116,9 +116,9 @@ model Gloves {
   product    Products @relation(fields: [product_id], references: [id], onDelete: Cascade)
   product_id Int
   sizes      String   @default("S M L XL")
-  warmth     String @default("")
-  material   String @default("")
-  cuff_style String @default("")
+  warmth     String   @default("")
+  material   String   @default("")
+  cuff_style String   @default("")
   created_at DateTime @default(now())
   updated_at DateTime @default(now()) @updatedAt
 }
@@ -128,6 +128,7 @@ model Discounts {
   name                String
   description         String
   discount_percentage Float
+  isGlobal            Boolean    @default(false)
   created_at          DateTime   @default(now())
   updated_at          DateTime   @default(now()) @updatedAt
   products            Products[]

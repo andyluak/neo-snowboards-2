@@ -1,15 +1,21 @@
 import '../styles/globals.scss';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistStore } from 'redux-persist';
 import getStore from '/redux/store';
 
-function MyApp({ Component, pageProps }) {
+function NeoSnowboarding({ Component, pageProps }) {
     const store = getStore(pageProps.initialState);
+    let persistor = persistStore(store);
     const getLayout = Component.getLayout || ((page) => page);
-    return getLayout(
+
+    return (
         <Provider store={store}>
-            <Component {...pageProps} />
+            <PersistGate persistor={persistor}>
+                {getLayout(<Component {...pageProps} />)}
+            </PersistGate>
         </Provider>
     );
 }
 
-export default MyApp;
+export default NeoSnowboarding;

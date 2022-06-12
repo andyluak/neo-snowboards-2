@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import cx from 'classnames';
 import Image from 'next/image';
 
-import { server } from '/config';
 import MainLayout from '/components/layouts/main-layout/MainLayout.jsx';
-import Button from 'components/utils/button/Button';
+import QuantitySelector from 'components/utils/QuantitySelector/QuantitySelector';
 
 import getStore from '/redux/store';
 import {
@@ -16,20 +15,21 @@ import {
     selectSize,
     incrementQuantity,
     decrementQuantity,
+    setQuantity,
     getProduct,
 } from 'redux/slices/productSlice';
+
+import { addToCart } from 'redux/slices/cartSlice';
 
 import s from '/styles/product.module.scss';
 
 function ProductPage() {
+    const [error, setError] = React.useState(false);
     const dispatch = useDispatch();
-    const setProductSize = (size) => {
-        dispatch(setSize(size));
-    };
     const product = useSelector(selectProduct);
-    const selectedSize = useSelector(selectSize);
-    const selectedQuantity = useSelector(selectQuantity);
-    const { image, brand, product_name, price } = product;
+    const size = useSelector(selectSize);
+    const quantity = useSelector(selectQuantity);
+    const { image, product_name, price } = product;
 
     const router = useRouter();
     const { type, gender } = router.query;
@@ -60,19 +60,19 @@ function ProductPage() {
                         <div className={s['product_action_size']}>
                             <p>Size</p>
                             <div className={s['product_sizes']}>
-                                {sizes.map((size, i) => {
+                                {sizes.map((mapSize, i) => {
                                     return (
                                         <button
                                             className={cx({
-                                                [s['selected']]: selectedSize === size, //prettier-ignore
+                                                [s['selected']]: size === mapSize, //prettier-ignore
                                             })}
                                             onClick={() =>
-                                                dispatch(setSize(size))
+                                                dispatch(setSize(mapSize))
                                             }
                                             key={i}
-                                            value={size}
+                                            value={mapSize}
                                         >
-                                            {size}
+                                            {mapSize}
                                         </button>
                                     );
                                 })}
@@ -81,31 +81,45 @@ function ProductPage() {
 
                         <div className={s['product_action_quantity']}>
                             <p>Quantity</p>
-                            <div className={s['product_quantity']}>
-                                <span
-                                    onClick={() =>
-                                        dispatch(decrementQuantity())
-                                    }
-                                >
-                                    -
-                                </span>
-                                <input
-                                    type="text"
-                                    value={selectedQuantity}
-                                    onChange={() => {}}
-                                />
-                                <span
-                                    onClick={() =>
-                                        dispatch(incrementQuantity())
-                                    }
-                                >
-                                    +
-                                </span>
-                            </div>
+                            <QuantitySelector
+                                quantity={quantity}
+                                onIncrement={() =>
+                                    dispatch(incrementQuantity())
+                                }
+                                onDecrement={() =>
+                                    dispatch(decrementQuantity())
+                                }
+                                onSetQuantity={(e) =>
+                                    dispatch(setQuantity(e.target.value))
+                                }
+                            />
                         </div>
 
                         <div className={s['product_action_add_to_cart']}>
-                            <button>Add To Cart</button>
+                            <button
+                                onClick={() => {
+                                    // verify if size is selected
+                                    if (!size) {
+                                        setError('Please select a size');
+                                        return;
+                                    }
+                                    setError(false);
+                                    dispatch(
+                                        addToCart({ product, quantity, size })
+                                    );
+                                }}
+                            >
+                                Add To Cart
+                            </button>
+                            {error && (
+                                <p
+                                    className="error"
+                                    role="alert"
+                                    aria-live="polite"
+                                >
+                                    {error}
+                                </p>
+                            )}
                         </div>
                     </div>
                 </div>

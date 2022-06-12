@@ -16,7 +16,6 @@ export const getBrandsByType = async (type, gender) => {
         _count: true,
     });
 
-    // sort brandNames alfabetica
     return brandNames;
 };
 

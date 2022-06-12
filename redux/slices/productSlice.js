@@ -33,6 +33,9 @@ const productSlice = createSlice({
         decrementQuantity(state) {
             state.quantity > 1 && state.quantity--;
         },
+        setQuantity(state, action) {
+            action.payload > 0 && (state.quantity = action.payload);
+        },
         setSize(state, action) {
             state.size === action.payload
                 ? (state.size = false)
@@ -61,5 +64,5 @@ export const selectProduct = (state) => state.product.product;
 export const selectQuantity = (state) => state.product.quantity;
 export const selectSize = (state) => state.product.size;
 
-export const { incrementQuantity, decrementQuantity, setSize } =
+export const { incrementQuantity, decrementQuantity, setSize, setQuantity } =
     productSlice.actions;
