@@ -1,0 +1,84 @@
+@import 'mixins';
+@import 'variables';
+
+.delivery_page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    h1 {
+        font-size: unset;
+        font-size: 1.4rem;
+    }
+    .delivery_price {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .delivery_info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .delivery_form {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+
+        .inline_input {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+        }
+
+        .input_group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+
+            input {
+                padding: 0.5rem 1rem;
+                border: 2px solid transparent;
+
+                &:focus {
+                    border: 2px solid $secondary_color;
+                }
+            }
+        }
+
+        .label_group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        //input type checkbox
+        input[type='checkbox'] {
+            accent-color: $primary_color;
+        }
+
+        .submit_btn {
+            margin-top: 1rem;
+            padding: 0.5rem 2rem;
+            background: $primary_color;
+            border: 0;
+            border-radius: 5px;
+            color: $white;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                background: $black;
+                color: $white;
+            }
+        }
+    }
+}

@@ -50,7 +50,7 @@ function CartPage() {
     if (cartItems.length === 0) {
         return (
             <section className={s['cart']}>
-                <h1>You don't have any items</h1>
+                <h1>{"You don't have any items"}</h1>
                 <Link href="/">Go to the shop</Link>
             </section>
         );
@@ -162,7 +162,7 @@ function CartPage() {
                 <Button
                     variant="primary"
                     value="Checkout Now"
-                    link={`/checkout/delivery`}
+                    link={`/checkout/type`}
                     icon="/utils/chevron-right.svg"
                     hasLink={true}
                 />
@@ -177,7 +177,7 @@ CartPage.getLayout = (page) => {
 
 export async function getServerSideProps(context) {
     const store = getStore();
-    const globalDiscounts = await store.dispatch(getGlobalDiscounts());
+    await store.dispatch(getGlobalDiscounts());
 
     return {
         props: {

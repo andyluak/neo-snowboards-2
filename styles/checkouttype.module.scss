@@ -1,0 +1,53 @@
+@import 'mixins';
+@import 'variables';
+
+.checkout_types {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4rem;
+
+    h1 {
+        font-size: unset;
+        font-size: 1.5rem;
+    }
+
+    button {
+        margin-top: unset;
+    }
+}
+.guest_checkout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login_form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+
+    input {
+        padding: 0.5rem 1rem;
+    }
+
+    .input_group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.3rem;
+    }
+
+    button {
+        padding: 0.5rem 2rem;
+        background: $primary_color;
+        border: 0;
+        border-radius: 5px;
+        color: $white;
+    }
+}

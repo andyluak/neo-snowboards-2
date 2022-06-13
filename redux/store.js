@@ -15,17 +15,19 @@ import {
 import shopSlice from '/redux/slices/shopSlice';
 import productSlice from '/redux/slices/productSlice';
 import cartSlice from 'redux/slices/cartSlice';
+import orderSlice from 'redux/slices/orderSlice';
 
 const reducers = combineReducers({
     shop: shopSlice.reducer,
     product: productSlice.reducer,
     cart: cartSlice.reducer,
+    order: orderSlice.reducer,
 });
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['cart'],
+    whitelist: ['cart', 'order'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
