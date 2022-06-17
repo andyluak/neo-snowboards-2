@@ -12,7 +12,9 @@
         "lint": "next lint",
         "prettier": "prettier --write .",
         "storybook": "start-storybook -p 6006",
-        "build-storybook": "build-storybook"
+        "build-storybook": "build-storybook",
+        "cypress": "cypress open",
+        "test": "jest --watch"
     },
     "dependencies": {
         "@prisma/client": "^3.14.0",
@@ -39,10 +41,15 @@
         "@storybook/manager-webpack5": "^6.5.5",
         "@storybook/react": "^6.5.5",
         "@storybook/testing-library": "^0.0.11",
+        "@testing-library/jest-dom": "^5.16.4",
+        "@testing-library/react": "^13.3.0",
         "babel-loader": "^8.2.5",
+        "cypress": "^10.1.0",
         "eslint": "8.16.0",
         "eslint-config-next": "12.1.6",
         "eslint-plugin-storybook": "^0.5.12",
+        "jest": "^28.1.1",
+        "jest-environment-jsdom": "^28.1.1",
         "prisma": "^3.14.0",
         "sass-loader": "^13.0.0",
         "storybook-addon-next": "^1.6.4",

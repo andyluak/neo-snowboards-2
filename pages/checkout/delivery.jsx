@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
+import useGuestSession from 'utils/hooks/useGuestSession';
 
 import MainLayout from '/components/layouts/main-layout/MainLayout.jsx';
 import { setDeliveryDetails } from 'redux/slices/orderSlice';
@@ -10,6 +11,12 @@ import s from 'styles/delivery.module.scss';
 function DeliveryPage() {
     const dispatch = useDispatch();
     const router = useRouter();
+
+    const {
+        query: { mode },
+    } = router;
+    useGuestSession(mode == 'guest' ? true : false);
+
     const getDateIn5Days = () => {
         const date = new Date();
         date.setDate(date.getDate() + 5);

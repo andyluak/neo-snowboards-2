@@ -3,7 +3,7 @@ import cx from 'classnames';
 import Link from 'next/link';
 
 import CustomImage from 'components/utils/CustomImage';
-import { navItems } from '/config/navItems';
+import { navItems } from 'config/navItems';
 
 import styles from './style.module.scss';
 

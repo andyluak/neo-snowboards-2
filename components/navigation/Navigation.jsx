@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 
 import MobileNavigation from './mobile-navigation/MobileNavigation';
-import { navItems } from '/config/navItems';
+import { navItems } from 'config/navItems';
 
 import styles from './style.module.scss';
 

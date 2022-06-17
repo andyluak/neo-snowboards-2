@@ -22,7 +22,6 @@ import s from 'styles/payment.module.scss';
 function PaymentPage() {
     const dispatch = useDispatch();
     const router = useRouter();
-    useGuestSession(isGuest);
 
     const delivery_adress = useSelector(selectDeliveryAdress);
     const { country, city, adress_line1, adress_line2, postal_code } =
@@ -36,9 +35,6 @@ function PaymentPage() {
     const totalQuantity = useSelector(selectCartTotalQuantity);
 
     const [paymentMethod, setPaymentMethod] = useState('card');
-
-    const { guest } = router.query;
-    const isGuest = guest === 'true' ? true : false;
 
     const cardPayment = () => {
         return (
@@ -147,13 +143,19 @@ function PaymentPage() {
             payment_method: paymentMethod,
         };
 
-        const response = await fetch('/api/orders/guest', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(body),
-        });
+        try {
+            const response = await fetch('/api/orders/guest', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(body),
+            });
+        } catch (error) {
+            console.log(error);
+        }
+
+        router.push('/checkout/success');
     };
 
     return (
@@ -172,7 +174,7 @@ function PaymentPage() {
                 <div className={s['input_group']}>
                     <label className={s['label_group']}>
                         {'Billing Adress same as delivery adress'}
-                        <input type="checkbox" required />
+                        <input type="checkbox" required autoComplete="off" />
                     </label>
                 </div>
                 {paymentTypeSelect()}

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:icalendar-ruby
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+DTSTAMP:20220615T201507Z
+UID:2ba58724-18e1-4e6f-8732-99ad447a5be7
+DTSTART:20220616T180000Z
+DTEND:20220616T190000Z
+CLASS:PRIVATE
+DESCRIPTION:Alex Tirim and Giovany Moreno should join this meeting link: ht
+ tps://topt.al/RBc6bq.\n\nAttendee:\nGiovany Moreno (giovany.moreno@toptal.
+ com)\n\nSubject:\nGiovany Moreno\n\nWeb Conference URL:\nhttps://topt.al/R
+ Bc6bq\n\nSomething came up and you can't attend? Please reschedule or canc
+ el the meeting:\nhttps://www.toptal.com/platform/talent/application_info/e
+ dit?token=user_7e497a912864fba8c7517a9d_92PXfgLR5XrPbxvTiiuL\n
+SUMMARY:Call with Giovany Moreno from Toptal
+END:VEVENT
+END:VCALENDAR

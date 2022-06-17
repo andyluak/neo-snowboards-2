@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { server } from '/config';
+import { server } from '../../config';
 
 const initialState = {
     subtotal: 0,
@@ -54,6 +54,10 @@ const orderSlice = createSlice({
                 ? state.deliveryAdress
                 : billingAdress;
         },
+        removeOrder(state) {
+            // reset order state
+            state = initialState;
+        },
     },
 });
 
@@ -64,6 +68,7 @@ export const {
     setDeliveryDetails,
     setPaymentType,
     setBillingAdress,
+    removeOrder,
 } = orderSlice.actions;
 
 export const selectDeliveryAdress = (state) => state.order.deliveryAdress;
@@ -73,3 +78,4 @@ export const selectFirstAndLastName = (state) => ({
 });
 export const selectPhoneNumber = (state) => state.order.phoneNumber;
 export const selectEmail = (state) => state.order.email;
+export const selectOrder = (state) => state.order;
